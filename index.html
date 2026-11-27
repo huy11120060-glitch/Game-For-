@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiểu Luận Web - Cổng Game Giải Trí Mini</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🕹️ Cổng Game Giải Trí Mini</h1>
+        <p>Chọn một tựa game bên dưới để bắt đầu trải nghiệm</p>
+    </header>
+
+    <div class="nav-menu">
+        <button class="nav-btn" id="btn-2048">🔢 2048</button>
+        <button class="nav-btn" id="btn-memory">🧠 Lật Thẻ Trí Nhớ</button>
+        <button class="nav-btn" id="btn-aim">🎯 Aim Lab</button>
+    </div>
+
+    <div id="welcome-screen">
+        <div class="icon">🎮</div>
+        <p>Chào mừng bạn đến với khu vực giải trí!<br>Vui lòng nhấn chọn một trò chơi ở thanh menu phía trên để bắt đầu.</p>
+    </div>
+
+    <div id="game-2048" class="game-section">
+        <div class="stats">
+            <span>Điểm số: <strong id="score-2048">0</strong></span>
+            <span>Dùng phím ⬅️⬆️⬇️➡️ hoặc WASD</span>
+            <button type="button" id="fullscreen-2048" class="aim-select" style="padding: 3px 10px; font-size: 0.82rem; background:#00cec9; color:#1e1e2f;">⛶ Toàn màn hình</button>
+        </div>
+        <div class="game-board-wrap">
+            <div id="board-2048"></div>
+            <div id="modal-2048" class="game-modal" style="display: none;"></div>
+        </div>
+        <div class="btn-group">
+            <button class="action-btn" id="restart-2048">Ván Mới</button>
+            <button class="action-btn back-btn" id="back-2048">Thoát ra sảnh</button>
+        </div>
+    </div>
+
+    <div id="game-memory" class="game-section">
+        <div class="stats">
+            <span>Màn: <strong id="mem-level">1/10</strong></span>
+            <span>Thời gian: <strong id="mem-time">35</strong>s</span>
+            <span>Cặp: <strong id="mem-matches">0/6</strong></span>
+            <button type="button" id="fullscreen-memory" class="aim-select" style="padding: 3px 10px; font-size: 0.82rem; background:#00cec9; color:#1e1e2f;">⛶ Toàn màn hình</button>
+        </div>
+        <div class="game-board-wrap">
+            <div id="board-memory"></div>
+            <div id="modal-memory" class="game-modal" style="display: none;"></div>
+        </div>
+        <div class="btn-group">
+            <button class="action-btn" id="restart-memory">Chơi Lại Từ Màn 1</button>
+            <button class="action-btn back-btn" id="back-memory">Thoát ra sảnh</button>
+        </div>
+    </div>
+
+    <div id="game-aim" class="game-section">
+        <div class="aim-controls">
+            <select id="aim-mode" class="aim-select">
+                <option value="timed">⏱️ Chế độ: Có thời gian (30s)</option>
+                <option value="endless">♾️ Chế độ: Không giới hạn</option>
+            </select>
+            <select id="aim-diff" class="aim-select">
+                <option value="easy">🟢 Độ khó: Dễ (Chậm)</option>
+                <option value="medium" selected>🟡 Độ khó: Trung bình (Nhanh)</option>
+                <option value="hard">🔴 Độ khó: Khó (Cực nhanh)</option>
+            </select>
+            <button type="button" id="fullscreen-aim" class="aim-select" style="background:#00cec9; color:#1e1e2f;">⛶ Toàn màn hình</button>
+        </div>
+
+        <div class="aim-controls" style="background: rgba(0,0,0,0.25); padding: 8px 14px; border-radius: 12px; align-items: center;">
+            <label for="aim-sens-range" style="font-size: 0.9rem; font-weight: bold; color: #00cec9;">🖱️ Độ nhạy (Sens):</label>
+            <input type="range" id="aim-sens-range" min="0.1" max="3.0" step="0.05" value="1.00" style="cursor: pointer; accent-color: #00cec9;">
+            <input type="number" id="aim-sens-input" min="0.05" max="10" step="0.05" value="1.00" class="aim-select" style="width: 75px; padding: 4px 8px; text-align: center;">
+        </div>
+
+        <div class="stats">
+            <span>Điểm: <strong id="aim-score">0</strong></span>
+            <span>Chính xác: <strong id="aim-acc">100</strong>%</span>
+            <span>Thời gian: <strong id="aim-time">30s</strong></span>
+        </div>
+        <div id="aim-arena"></div>
+        <div class="btn-group">
+            <button class="action-btn" id="restart-aim">Chơi Lại</button>
+            <button class="action-btn" id="stop-aim" style="background:#0984e3;">Dừng & Xem Kết Quả</button>
+            <button class="action-btn back-btn" id="back-aim">Thoát ra sảnh</button>
+        </div>
+    </div>
+
+    <footer>
+        Tiểu luận cuối kỳ - Môn: Thiết kế Web | Sinh viên thực hiện: [Tên của bạn]
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="game2048.js"></script>
+    <script src="memory.js"></script>
+    <script src="aim.js"></script>
+</body>
+</html>
